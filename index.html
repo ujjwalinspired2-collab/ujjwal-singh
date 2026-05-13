@@ -1,328 +1,130 @@
-export default function CrunchEditsWebsite() {
-  return (
-    <div className="min-h-screen bg-black text-white font-sans">
-      {/* Navbar */}
-      <header className="fixed top-0 w-full z-50 backdrop-blur-md bg-black/60 border-b border-white/10">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <h1 className="text-2xl font-bold tracking-tight">Crunch Edits</h1>
-          <nav className="hidden md:flex gap-8 text-sm text-white/80">
-            <a href="#services" className="hover:text-white transition">Services</a>
-            <a href="#work" className="hover:text-white transition">Work</a>
-            <a href="#process" className="hover:text-white transition">Process</a>
-            <a href="#faq" className="hover:text-white transition">FAQ</a>
-          </nav>
-          <a
-            href="#contact"
-            className="bg-white text-black px-5 py-2 rounded-full text-sm font-semibold hover:scale-105 transition"
-          >
-            Book Call
-          </a>
-        </div>
-      </header>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-      {/* Hero */}
-      <section className="relative overflow-hidden pt-40 pb-24 px-6">
-        <div className="absolute inset-0 bg-gradient-to-b from-zinc-900 via-black to-black opacity-90"></div>
+  <title>Crunch Edits</title>
 
-        <div className="relative max-w-6xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 bg-zinc-900 border border-white/10 rounded-full px-4 py-2 text-sm mb-8">
-            <span className="w-2 h-2 rounded-full bg-green-400"></span>
-            High-Converting Video Editing Agency
-          </div>
+  <script src="https://cdn.tailwindcss.com"></script>
 
-          <h1 className="text-5xl md:text-7xl font-black leading-tight tracking-tight max-w-5xl mx-auto">
-            We Turn Creators Into <span className="text-zinc-400">Content Machines.</span>
-          </h1>
+  <style>
+    body {
+      margin: 0;
+      background: black;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
 
-          <p className="text-lg md:text-xl text-white/60 max-w-3xl mx-auto mt-8 leading-relaxed">
-            Crunch Edits helps creators and businesses scale faster with premium long-form edits, short-form clips, motion graphics, and viral storytelling.
-          </p>
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+    }
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10">
-            <a
-              href="#contact"
-              className="bg-white text-black px-8 py-4 rounded-full font-semibold hover:scale-105 transition"
-            >
-              Start Scaling
-            </a>
+    h1 {
+      font-size: 70px;
+      max-width: 900px;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
 
-            <a
-              href="#work"
-              className="border border-white/20 px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-black transition"
-            >
-              View Work
-            </a>
-          </div>
+    p {
+      color: #a1a1aa;
+      max-width: 700px;
+      font-size: 20px;
+    }
 
-          {/* Mock Editing UI */}
-          <div className="mt-20 max-w-5xl mx-auto rounded-3xl overflow-hidden border border-white/10 shadow-2xl bg-zinc-950">
-            <div className="grid md:grid-cols-3 gap-0">
-              <div className="bg-zinc-900 p-6 border-r border-white/10">
-                <div className="space-y-4">
-                  <div className="h-4 bg-zinc-700 rounded w-2/3"></div>
-                  <div className="h-24 bg-zinc-800 rounded-xl"></div>
-                  <div className="h-4 bg-zinc-700 rounded w-1/2"></div>
-                  <div className="h-24 bg-zinc-800 rounded-xl"></div>
-                </div>
-              </div>
+    .buttons {
+      margin-top: 40px;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
 
-              <div className="md:col-span-2 p-8 bg-black">
-                <div className="aspect-video rounded-2xl bg-gradient-to-br from-zinc-800 to-zinc-950 border border-white/10 flex items-center justify-center text-white/30 text-xl font-semibold">
-                  Crunch Edits Preview
-                </div>
+    .btn-white {
+      background: white;
+      color: black;
+      padding: 15px 30px;
+      border-radius: 999px;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+    }
 
-                <div className="mt-6 space-y-3">
-                  <div className="h-3 bg-zinc-700 rounded-full w-full"></div>
-                  <div className="h-3 bg-zinc-600 rounded-full w-4/5"></div>
-                  <div className="h-3 bg-zinc-800 rounded-full w-2/3"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+    .btn-dark {
+      background: transparent;
+      color: white;
+      padding: 15px 30px;
+      border-radius: 999px;
+      border: 1px solid #333;
+      cursor: pointer;
+    }
 
-      {/* Logos */}
-      <section className="py-16 border-y border-white/10 bg-zinc-950">
-        <div className="max-w-6xl mx-auto px-6 text-center">
-          <p className="text-white/40 uppercase tracking-[0.3em] text-xs mb-10">
-            Trusted By Creators & Brands
-          </p>
+    .preview {
+      margin-top: 70px;
+      width: 90%;
+      max-width: 1000px;
+      height: 500px;
+      border-radius: 30px;
+      background: linear-gradient(to bottom right, #27272a, black);
+      border: 1px solid #222;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 50px;
+      color: rgba(255,255,255,0.2);
+      font-weight: bold;
+    }
 
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-8 text-white/60 text-lg font-semibold">
-            <div>CreatorX</div>
-            <div>Growth Labs</div>
-            <div>Scale Media</div>
-            <div>Visionary</div>
-            <div>Alpha Agency</div>
-          </div>
-        </div>
-      </section>
+    @media(max-width:768px) {
+      h1 {
+        font-size: 45px;
+      }
 
-      {/* Services */}
-      <section id="services" className="py-28 px-6">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold">What We Do</h2>
-            <p className="text-white/60 mt-5 max-w-2xl mx-auto text-lg">
-              Everything you need to dominate attention online.
-            </p>
-          </div>
+      .preview {
+        height: 300px;
+        font-size: 30px;
+      }
+    }
+  </style>
+</head>
 
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              {
-                title: 'Long Form Editing',
-                desc: 'YouTube videos optimized for retention and storytelling.'
-              },
-              {
-                title: 'Short Form Clips',
-                desc: 'Viral TikToks, Reels, and Shorts that grow your audience.'
-              },
-              {
-                title: 'Motion Graphics',
-                desc: 'Premium animations and effects that make content unforgettable.'
-              },
-              {
-                title: 'Thumbnail Design',
-                desc: 'CTR-focused thumbnails built for clicks and conversions.'
-              },
-              {
-                title: 'Content Strategy',
-                desc: 'Structure, hooks, pacing, and ideas tailored for growth.'
-              },
-              {
-                title: 'Fast Turnaround',
-                desc: 'Reliable delivery without sacrificing quality.'
-              }
-            ].map((service, i) => (
-              <div
-                key={i}
-                className="bg-zinc-950 border border-white/10 rounded-3xl p-8 hover:border-white/30 transition"
-              >
-                <div className="w-12 h-12 rounded-2xl bg-white/10 mb-6"></div>
-                <h3 className="text-2xl font-bold mb-4">{service.title}</h3>
-                <p className="text-white/60 leading-relaxed">{service.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+<body>
 
-      {/* Work */}
-      <section id="work" className="py-28 bg-zinc-950 px-6">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex items-end justify-between mb-14 flex-col md:flex-row gap-6">
-            <div>
-              <h2 className="text-4xl md:text-5xl font-bold">Selected Work</h2>
-              <p className="text-white/60 mt-4 max-w-xl">
-                High-retention edits built for creators serious about growth.
-              </p>
-            </div>
+  <section class="hero">
 
-            <a href="#contact" className="border border-white/20 px-6 py-3 rounded-full hover:bg-white hover:text-black transition">
-              Work With Us
-            </a>
-          </div>
+    <h1>
+      We Turn Creators Into Content Machines.
+    </h1>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            {[1, 2, 3, 4].map((item) => (
-              <div
-                key={item}
-                className="rounded-3xl overflow-hidden border border-white/10 bg-black"
-              >
-                <div className="aspect-video bg-gradient-to-br from-zinc-800 to-zinc-950"></div>
-                <div className="p-6">
-                  <h3 className="text-2xl font-bold">YouTube Growth Edit</h3>
-                  <p className="text-white/60 mt-3">
-                    Retention-focused storytelling with cinematic pacing.
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+    <p>
+      Crunch Edits helps creators scale faster with premium YouTube editing,
+      shorts, thumbnails, and motion graphics.
+    </p>
 
-      {/* Process */}
-      <section id="process" className="py-28 px-6">
-        <div className="max-w-5xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold">Simple Process</h2>
-          <p className="text-white/60 mt-5 text-lg">
-            Built for speed, communication, and consistent output.
-          </p>
+    <div class="buttons">
 
-          <div className="grid md:grid-cols-3 gap-8 mt-16">
-            {[
-              'Book A Call',
-              'Send Footage',
-              'Scale Your Content'
-            ].map((step, i) => (
-              <div
-                key={i}
-                className="bg-zinc-950 border border-white/10 rounded-3xl p-10"
-              >
-                <div className="text-5xl font-black text-white/20 mb-6">
-                  0{i + 1}
-                </div>
-                <h3 className="text-2xl font-bold">{step}</h3>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <button class="btn-white">
+        Start Scaling
+      </button>
 
-      {/* Testimonials */}
-      <section className="py-28 bg-zinc-950 px-6">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold">Client Results</h2>
-          </div>
+      <button class="btn-dark">
+        View Work
+      </button>
 
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              'Crunch Edits completely transformed our content quality.',
-              'The edits increased our retention massively.',
-              'Fast delivery and genuinely premium editing.'
-            ].map((quote, i) => (
-              <div
-                key={i}
-                className="bg-black border border-white/10 rounded-3xl p-8"
-              >
-                <p className="text-white/80 text-lg leading-relaxed">
-                  “{quote}”
-                </p>
-
-                <div className="mt-8">
-                  <div className="font-semibold">Creator Name</div>
-                  <div className="text-white/40 text-sm">YouTube Creator</div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section id="faq" className="py-28 px-6">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold">Frequently Asked Questions</h2>
-          </div>
-
-          <div className="space-y-6">
-            {[
-              {
-                q: 'How fast is delivery?',
-                a: 'Most edits are delivered within 48–72 hours depending on complexity.'
-              },
-              {
-                q: 'Do you offer revisions?',
-                a: 'Yes. We work closely with clients to make sure the final video matches expectations.'
-              },
-              {
-                q: 'Can you edit shorts too?',
-                a: 'Absolutely. We specialize in Shorts, Reels, and TikTok clips.'
-              }
-            ].map((faq, i) => (
-              <div
-                key={i}
-                className="border border-white/10 rounded-2xl p-6 bg-zinc-950"
-              >
-                <h3 className="text-xl font-semibold">{faq.q}</h3>
-                <p className="text-white/60 mt-3 leading-relaxed">{faq.a}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section id="contact" className="py-28 px-6">
-        <div className="max-w-5xl mx-auto text-center bg-zinc-950 border border-white/10 rounded-[40px] p-14 md:p-20">
-          <h2 className="text-4xl md:text-6xl font-black leading-tight">
-            Ready To Scale Your Content?
-          </h2>
-
-          <p className="text-white/60 text-lg mt-6 max-w-2xl mx-auto leading-relaxed">
-            Work with Crunch Edits and turn your content into a growth engine.
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10">
-            <a
-              href="mailto:hello@crunchedits.com"
-              className="bg-white text-black px-8 py-4 rounded-full font-semibold hover:scale-105 transition"
-            >
-              Contact Us
-            </a>
-
-            <a
-              href="#"
-              className="border border-white/20 px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-black transition"
-            >
-              Instagram
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="border-t border-white/10 py-10 px-6">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-          <div>
-            <h3 className="text-2xl font-bold">Crunch Edits</h3>
-            <p className="text-white/40 mt-2 text-sm">
-              Premium Video Editing Agency
-            </p>
-          </div>
-
-          <div className="flex gap-6 text-white/50 text-sm">
-            <a href="#">Instagram</a>
-            <a href="#">YouTube</a>
-            <a href="#">Discord</a>
-          </div>
-        </div>
-      </footer>
     </div>
-  )
-}
+
+    <div class="preview">
+      Crunch Edits
+    </div>
+
+  </section>
+
+</body>
+</html>
