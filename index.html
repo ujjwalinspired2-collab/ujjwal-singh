@@ -73,8 +73,10 @@
     section{padding:86px 0}.section-head{text-align:center;max-width:780px;margin:0 auto 42px}.section-head h2{font-size:clamp(34px,5vw,64px);letter-spacing:-.055em;line-height:1;font-weight:900}.section-head p{color:var(--muted);font-size:18px;line-height:1.6;margin-top:14px}
     .clients-wrap{overflow:hidden;border-block:1px solid var(--line);padding:24px 0;background:rgba(255,255,255,.025)}
     .marquee{display:flex;gap:14px;width:max-content;animation:marquee 54s linear infinite}.marquee:hover{animation-play-state:paused}@keyframes marquee{to{transform:translateX(-50%)}}
-    .client-card{min-width:235px;background:linear-gradient(180deg,#17171f,#0e0e13);border:1px solid var(--line);border-radius:20px;padding:18px;box-shadow:0 12px 35px rgba(0,0,0,.18)}
-    .client-card strong{font-size:18px}.client-card p{color:var(--muted);font-size:14px;margin-top:8px}
+    .client-card{min-width:255px;background:linear-gradient(180deg,#17171f,#0e0e13);border:1px solid var(--line);border-radius:22px;padding:16px;box-shadow:0 12px 35px rgba(0,0,0,.18);display:flex;align-items:center;gap:14px;transition:.25s}
+    .client-card:hover{transform:translateY(-4px);border-color:rgba(255,39,39,.55);background:linear-gradient(180deg,#1f1f2a,#101016)}
+    .client-logo{width:58px;height:58px;border-radius:18px;object-fit:cover;flex:0 0 auto;background:radial-gradient(circle at 30% 20%,rgba(255,255,255,.22),transparent 34%),linear-gradient(135deg,#ff2727,#111116);border:1px solid rgba(255,255,255,.16);box-shadow:0 10px 28px rgba(0,0,0,.26)}
+    .client-info{min-width:0}.client-card strong{font-size:17px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.client-card p{color:var(--muted);font-size:13px;margin-top:6px}.client-card small{display:inline-block;margin-top:6px;color:#fff;font-weight:900;font-size:11px;text-transform:uppercase;letter-spacing:.08em;opacity:.8}
 
     .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:28px}.stat{background:linear-gradient(180deg,#15151c,#0c0c10);border:1px solid var(--line);padding:30px;border-radius:var(--radius);text-align:center}.stat h3{font-size:42px;color:#fff}.stat p{color:var(--muted);font-weight:800;margin-top:8px}
     .red-panel{background:linear-gradient(135deg,rgba(255,39,39,.18),rgba(255,255,255,.035));border:1px solid rgba(255,39,39,.28);border-radius:34px;padding:44px;box-shadow:var(--shadow)}
@@ -214,15 +216,75 @@
 
   <script>
     const clients = [
-      ['LeadGenJay','74K','https://www.youtube.com/'],['Browney','11M','https://www.youtube.com/'],['Fearless & Far','600K','https://www.youtube.com/'],['ImFiji','14M','https://www.youtube.com/'],['TanQR','4.77M','https://www.youtube.com/'],['Inquisitor Master','10M','https://www.youtube.com/'],['alpha m.','6.9M','https://www.youtube.com/'],['Vindooly','1.8M','https://www.youtube.com/'],['Simply Bubliie','509K','https://www.youtube.com/'],['Koopekool','303K','https://www.youtube.com/'],['Sirud','150K','https://www.youtube.com/'],['Lost N Unbound','120K','https://www.youtube.com/'],['WinterKloudz','95K','https://www.youtube.com/'],['Global Pay','15K','https://www.globalpayments.com/'],['Kevin Estopinal','5K','https://www.youtube.com/'],['itsjustnicholas','2','https://www.youtube.com/'],['KEN RBLX','830K','https://www.youtube.com/'],['Jelly & Ducky','50K','https://www.youtube.com/'],['Sakpot','281K','https://www.youtube.com/'],['FloatyZone','867K','https://www.youtube.com/'],['Rainway','487K','https://www.youtube.com/'],['MM2 Chillz','3.9M','https://www.youtube.com/'],['Aesir','278K','https://www.youtube.com/'],['Kwil','449K','https://www.youtube.com/'],['Dr. Himanshu','TBD','https://www.instagram.com/'],['FEXR','550K','https://www.youtube.com/'],['GiveMchills','TBD','https://www.youtube.com/'],['Mozking','289K','https://www.youtube.com/'],['Zillas','85.9K','https://www.youtube.com/'],['FullValueDan','TBD','https://www.youtube.com/'],['Llxllie','1.2M','https://www.youtube.com/'],['BemmyBlox','550K','https://www.youtube.com/'],['sam','1M+','https://www.youtube.com/'],['RepublicStuds','267K','https://www.youtube.com/'],['Astrend','240K','https://www.youtube.com/'],['Meenyu','4M','https://www.youtube.com/'],['Tbhhonest','410K','https://www.youtube.com/'],['Built by Gamers','268K','https://www.youtube.com/'],['Pip & Louie','TBD','https://www.youtube.com/'],['Alaska Violet','2.56M','https://www.youtube.com/'],['DogMondays','TBD','https://www.tiktok.com/'],['DashBlox','1.51M','https://www.youtube.com/'],['Daash','20.3K','https://www.youtube.com/'],['Chillz MM2','2.1M','https://www.youtube.com/'],['Chillz Brookhaven','969K','https://www.youtube.com/'],['SprunkiSquad','TBD','https://www.youtube.com/'],['InsightBlox','18.2K','https://www.youtube.com/']
+      {name:'LeadGenJay', subs:'74K', url:'https://www.youtube.com/@LeadGenJay'},
+      {name:'Browney', subs:'11M', url:'https://www.youtube.com/Browney'},
+      {name:'Fearless & Far', subs:'600K', url:'https://www.youtube.com/@fearlessandfar'},
+      {name:'ImFiji', subs:'14M', url:'https://www.youtube.com/@ImFiji'},
+      {name:'TanQR', subs:'4.77M', url:'https://www.youtube.com/@TanqR'},
+      {name:'Inquisitor Master', subs:'10M', url:'https://www.youtube.com/@InquisitorMaster'},
+      {name:'alpha m.', subs:'6.9M', url:'https://www.youtube.com/@alpham'},
+      {name:'Vindooly', subs:'1.8M', url:'https://www.youtube.com/@Vindooly/videos'},
+      {name:'Simply Bubliie', subs:'509K', url:'https://www.youtube.com/@SiimplyBubliie'},
+      {name:'Koopekool', subs:'303K', url:'https://www.youtube.com/@koopekool/videos'},
+      {name:'Sirud', subs:'150K', url:'https://www.youtube.com/@Sirud'},
+      {name:'Lost N Unbound', subs:'120K', url:'https://www.youtube.com/@LostNUnbound'},
+      {name:'WinterKloudz', subs:'95K', url:'https://www.youtube.com/@WinterKloudz'},
+      {name:'Global Pay', subs:'15K', url:'https://www.globalpayments.com/'},
+      {name:'Kevin Estopinal', subs:'5K', url:'https://www.youtube.com/@kevinestopinal'},
+      {name:'itsjustnicholas', subs:'2', url:'https://www.youtube.com/@itsjustnicholas'},
+      {name:'KEN RBLX', subs:'830K', url:'https://www.youtube.com/@KENRBLX'},
+      {name:'Jelly & Ducky', subs:'50K', url:'https://www.youtube.com/@JellyAndDucky'},
+      {name:'Sakpot', subs:'281K', url:'https://www.youtube.com/@Sakpot'},
+      {name:'FloatyZone', subs:'867K', url:'https://www.youtube.com/@FloatyZone'},
+      {name:'Rainway', subs:'487K', url:'https://www.youtube.com/@RainwayRoblox'},
+      {name:'MM2 Chillz', subs:'3.9M', url:'https://www.youtube.com/@MM2Chillz'},
+      {name:'Aesir', subs:'278K', url:'https://www.youtube.com/@AesirYT'},
+      {name:'Kwil', subs:'449K', url:'https://www.youtube.com/@Kwil'},
+      {name:'Dr. Himanshu', subs:'TBD', url:'https://www.instagram.com/drhimanshu'},
+      {name:'FEXR', subs:'550K', url:'https://www.youtube.com/@FEXR'},
+      {name:'GiveMchills', subs:'TBD', url:'https://www.youtube.com/@GiveMchills'},
+      {name:'Mozking', subs:'289K', url:'https://www.youtube.com/@Mozking'},
+      {name:'Zillas', subs:'85.9K', url:'https://www.youtube.com/@Zillas'},
+      {name:'FullValueDan', subs:'TBD', url:'https://www.youtube.com/@FullValueDan'},
+      {name:'Llxllie', subs:'1.2M', url:'https://www.youtube.com/@Llxllie'},
+      {name:'BemmyBlox', subs:'550K', url:'https://www.youtube.com/@BemmyBlox'},
+      {name:'sam', subs:'1M+', url:'https://www.youtube.com/@sam'},
+      {name:'RepublicStuds', subs:'267K', url:'https://www.youtube.com/@RepublicStuds'},
+      {name:'Astrend', subs:'240K', url:'https://www.youtube.com/@Astrend'},
+      {name:'Meenyu', subs:'4M', url:'https://www.youtube.com/@Meenyu'},
+      {name:'Tbhhonest', subs:'410K', url:'https://www.youtube.com/@Tbhhonest'},
+      {name:'Built by Gamers', subs:'268K', url:'https://www.youtube.com/@BuiltByGamers'},
+      {name:'Pip & Louie', subs:'TBD', url:'https://www.youtube.com/@PipAndLouie'},
+      {name:'Alaska Violet', subs:'2.56M', url:'https://www.youtube.com/@AlaskaViolet'},
+      {name:'DogMondays', subs:'TBD', url:'https://www.tiktok.com/@dogmondays'},
+      {name:'DashBlox', subs:'1.51M', url:'https://www.youtube.com/@DashBlox'},
+      {name:'Daash', subs:'20.3K', url:'https://www.youtube.com/@Daash'},
+      {name:'Chillz MM2', subs:'2.1M', url:'https://www.youtube.com/@ChillzMM2'},
+      {name:'Chillz Brookhaven', subs:'969K', url:'https://www.youtube.com/@ChillzBrookhaven'},
+      {name:'SprunkiSquad', subs:'TBD', url:'https://www.youtube.com/@SprunkiSquad'},
+      {name:'InsightBlox', subs:'18.2K', url:'https://www.youtube.com/@InsightBlox'}
     ];
+
     const showcase = [
       ['17 Side Hustles You Can Start In 2023.','qsVSiDv_Nfo'],['Some Animation Samples','yV2aZe8Km9U'],["Erin Mcgoff's Intro",'ELpT2nuBzH4'],["I'm Going To Jail For Dropshipping This",'YKbo2mmRyjo'],['6 HARD Decisions Every Man MUST Make in His Lifetime','lwFNNBWzcG0'],['Book A Call Video','1wfUHq_TP4w'],['10 Freelancing Tips for Freshers','QYaRV3eZixo'],['Unboxing a Haunted Dolls Mystery Box','UJj1r7r5SNc']
     ];
+    const logoFor = (name) => `https://api.dicebear.com/9.x/initials/svg?seed=${encodeURIComponent(name)}&backgroundColor=ff2727,17171f,2b2b36&textColor=ffffff&fontWeight=800`;
     const marquee = document.getElementById('clientMarquee');
-    [...clients,...clients].forEach(([name,subs,url])=>{
-      const a=document.createElement('a'); a.className='client-card'; a.href=url; a.target='_blank';
-      a.innerHTML=`<strong>${name}</strong><p>Subscribers: ${subs}</p>`; marquee.appendChild(a);
+    [...clients,...clients].forEach(({name,subs,url})=>{
+      const a=document.createElement('a');
+      a.className='client-card';
+      a.href=url;
+      a.target='_blank';
+      a.rel='noopener noreferrer';
+      a.title=`Open ${name} channel`;
+      a.innerHTML=`
+        <img class="client-logo" src="${logoFor(name)}" alt="${name} logo" loading="lazy">
+        <div class="client-info">
+          <strong>${name}</strong>
+          <p>Subscribers: ${subs}</p>
+          <small>Open Channel</small>
+        </div>`;
+      marquee.appendChild(a);
     });
     const grid=document.getElementById('showcaseGrid');
     showcase.forEach(([title,id])=>{
