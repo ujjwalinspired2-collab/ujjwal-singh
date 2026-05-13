@@ -1,130 +1,240 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Crunch Edits</title>
-
-  <script src="https://cdn.tailwindcss.com"></script>
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bundle Media | Professional Video Editing for Social Media</title>
+  <meta name="description" content="World-class video editing for creators, brands, ads, social media, documentaries, gaming videos, vlogs and thumbnails." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
-    body {
-      margin: 0;
-      background: black;
-      color: white;
-      font-family: Arial, sans-serif;
+    :root{
+      --bg:#050505;
+      --bg2:#0c0c10;
+      --card:#111116;
+      --card2:#17171f;
+      --text:#ffffff;
+      --muted:#a9a9b7;
+      --line:rgba(255,255,255,.10);
+      --red:#ff2727;
+      --red2:#c81414;
+      --green:#24ff88;
+      --shadow:0 24px 80px rgba(0,0,0,.55);
+      --radius:24px;
     }
-
-    .hero {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 20px;
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      background:
+        radial-gradient(circle at 20% 0%,rgba(255,39,39,.20),transparent 32%),
+        radial-gradient(circle at 90% 18%,rgba(255,39,39,.12),transparent 28%),
+        linear-gradient(180deg,#020202 0%,#09090d 48%,#040404 100%);
+      color:var(--text);
+      overflow-x:hidden;
     }
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{width:min(1180px,92%);margin:0 auto}
+    .pill{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.05);color:#fff;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.08em}
+    .dot{width:8px;height:8px;border-radius:999px;background:var(--red);box-shadow:0 0 18px var(--red)}
 
-    h1 {
-      font-size: 70px;
-      max-width: 900px;
-      line-height: 1.1;
-      margin-bottom: 20px;
-    }
+    header{position:sticky;top:0;z-index:50;background:rgba(5,5,5,.72);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+    .nav{height:84px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:900;letter-spacing:-.04em;font-size:23px}
+    .brand img{width:46px;height:46px;object-fit:contain;border-radius:12px}
+    .navlinks{display:flex;gap:26px;align-items:center;color:#d5d5dc;font-weight:700;font-size:14px}
+    .navlinks a:hover{color:#fff}
+    .btn{display:inline-flex;align-items:center;justify-content:center;border:none;border-radius:999px;padding:14px 22px;background:linear-gradient(135deg,var(--red),var(--red2));font-weight:900;box-shadow:0 14px 38px rgba(255,39,39,.22);transition:.25s;cursor:pointer}
+    .btn:hover{transform:translateY(-2px);box-shadow:0 20px 55px rgba(255,39,39,.34)}
+    .btn.outline{background:rgba(255,255,255,.06);border:1px solid var(--line);box-shadow:none}
 
-    p {
-      color: #a1a1aa;
-      max-width: 700px;
-      font-size: 20px;
-    }
+    .hero{position:relative;padding:98px 0 72px;min-height:760px;display:grid;place-items:center;overflow:hidden}
+    .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center}
+    h1{font-size:clamp(48px,7.6vw,104px);line-height:.9;letter-spacing:-.075em;font-weight:900;margin:22px 0}
+    h1 span{color:var(--red);text-shadow:0 0 50px rgba(255,39,39,.45)}
+    .hero p{font-size:clamp(18px,2vw,24px);line-height:1.55;color:#d5d5dc;max-width:640px;margin-bottom:28px}
+    .hero-tags{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 0;color:#fff}
+    .hero-tags span{padding:10px 14px;background:rgba(255,255,255,.07);border:1px solid var(--line);border-radius:999px;font-weight:800;text-transform:lowercase}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+    .edit-ui{border:1px solid rgba(255,255,255,.13);background:linear-gradient(180deg,#15151b,#08080c);border-radius:30px;box-shadow:var(--shadow);padding:18px;position:relative;overflow:hidden}
+    .edit-ui:before{content:"";position:absolute;inset:-40%;background:conic-gradient(from 180deg,transparent,rgba(255,39,39,.15),transparent);animation:spin 9s linear infinite}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    .edit-inner{position:relative;background:#0b0b10;border:1px solid var(--line);border-radius:22px;padding:18px;overflow:hidden}
+    .topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;color:#dedee7;font-size:12px;font-weight:800}
+    .lights{display:flex;gap:7px}.lights i{width:12px;height:12px;border-radius:50%;background:#ff4b4b}.lights i:nth-child(2){background:#ffc24b}.lights i:nth-child(3){background:#2eff88}
+    .preview{height:245px;border-radius:18px;background:linear-gradient(135deg,#242431,#08080d);border:1px solid var(--line);display:grid;place-items:center;position:relative;overflow:hidden}
+    .play{width:86px;height:86px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--red),#ff6b6b);box-shadow:0 0 60px rgba(255,39,39,.5);font-size:34px;padding-left:6px}
+    .timeline{margin-top:18px;background:#111118;border:1px solid var(--line);border-radius:18px;padding:14px;display:grid;gap:10px}
+    .track{height:34px;border-radius:10px;background:rgba(255,255,255,.06);position:relative;overflow:hidden}.track:before{content:"";position:absolute;left:8%;top:7px;height:20px;width:58%;border-radius:7px;background:linear-gradient(90deg,var(--red),#ff7676)}.track:nth-child(2):before{left:18%;width:42%;background:linear-gradient(90deg,#5a5aff,#9494ff)}.track:nth-child(3):before{left:10%;width:75%;background:linear-gradient(90deg,#21c96d,#8affbd)}
+    .timecodes{display:flex;justify-content:space-between;color:#777887;font-size:11px;font-weight:800}
 
-    .buttons {
-      margin-top: 40px;
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
+    section{padding:86px 0}.section-head{text-align:center;max-width:780px;margin:0 auto 42px}.section-head h2{font-size:clamp(34px,5vw,64px);letter-spacing:-.055em;line-height:1;font-weight:900}.section-head p{color:var(--muted);font-size:18px;line-height:1.6;margin-top:14px}
+    .clients-wrap{overflow:hidden;border-block:1px solid var(--line);padding:24px 0;background:rgba(255,255,255,.025)}
+    .marquee{display:flex;gap:14px;width:max-content;animation:marquee 54s linear infinite}.marquee:hover{animation-play-state:paused}@keyframes marquee{to{transform:translateX(-50%)}}
+    .client-card{min-width:235px;background:linear-gradient(180deg,#17171f,#0e0e13);border:1px solid var(--line);border-radius:20px;padding:18px;box-shadow:0 12px 35px rgba(0,0,0,.18)}
+    .client-card strong{font-size:18px}.client-card p{color:var(--muted);font-size:14px;margin-top:8px}
 
-    .btn-white {
-      background: white;
-      color: black;
-      padding: 15px 30px;
-      border-radius: 999px;
-      font-weight: bold;
-      border: none;
-      cursor: pointer;
-    }
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:28px}.stat{background:linear-gradient(180deg,#15151c,#0c0c10);border:1px solid var(--line);padding:30px;border-radius:var(--radius);text-align:center}.stat h3{font-size:42px;color:#fff}.stat p{color:var(--muted);font-weight:800;margin-top:8px}
+    .red-panel{background:linear-gradient(135deg,rgba(255,39,39,.18),rgba(255,255,255,.035));border:1px solid rgba(255,39,39,.28);border-radius:34px;padding:44px;box-shadow:var(--shadow)}
 
-    .btn-dark {
-      background: transparent;
-      color: white;
-      padding: 15px 30px;
-      border-radius: 999px;
-      border: 1px solid #333;
-      cursor: pointer;
-    }
+    .categories{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-bottom:32px}.categories span{padding:10px 16px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid var(--line);font-weight:800;color:#e8e8ee}
+    .showcase-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.video-card{background:var(--card);border:1px solid var(--line);border-radius:22px;overflow:hidden;transition:.25s;box-shadow:0 15px 44px rgba(0,0,0,.18)}.video-card:hover{transform:translateY(-7px);border-color:rgba(255,39,39,.55)}.thumb{aspect-ratio:16/9;position:relative;background:#222;overflow:hidden}.thumb img{width:100%;height:100%;object-fit:cover;transition:.35s}.video-card:hover img{transform:scale(1.06)}.thumb:after{content:"▶";position:absolute;inset:0;margin:auto;width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:rgba(255,39,39,.9);font-size:22px;padding-left:4px}.video-card h3{font-size:15px;line-height:1.35;padding:16px;color:#fff}
+    .iframe-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:28px}.embed{border:1px solid var(--line);border-radius:24px;overflow:hidden;background:#111;box-shadow:var(--shadow)}.embed iframe{width:100%;aspect-ratio:16/9;border:0;display:block}
 
-    .preview {
-      margin-top: 70px;
-      width: 90%;
-      max-width: 1000px;
-      height: 500px;
-      border-radius: 30px;
-      background: linear-gradient(to bottom right, #27272a, black);
-      border: 1px solid #222;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 50px;
-      color: rgba(255,255,255,0.2);
-      font-weight: bold;
-    }
+    .reviews{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:stretch}.review-card{background:linear-gradient(180deg,#17171f,#0c0c11);border:1px solid var(--line);border-radius:var(--radius);padding:26px}.stars{color:#ffcc4d;letter-spacing:3px;margin-bottom:12px}.quote{font-size:22px;line-height:1.55;font-weight:700}.reviewer{margin-top:18px;color:var(--muted);font-weight:800}.mini-reviews{display:grid;gap:16px}.mini-reviews .review-card{padding:22px}.mini-reviews .quote{font-size:16px;color:#e9e9ef}
 
-    @media(max-width:768px) {
-      h1 {
-        font-size: 45px;
-      }
+    .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.step{background:linear-gradient(180deg,#17171f,#0c0c11);border:1px solid var(--line);border-radius:var(--radius);padding:28px;min-height:240px}.step-num{font-size:46px;font-weight:900;color:rgba(255,39,39,.82);letter-spacing:-.05em}.step h3{font-size:24px;margin:14px 0 10px}.step p{color:var(--muted);line-height:1.6}
+    .faq{max-width:900px;margin:0 auto;display:grid;gap:14px}.faq details{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px}.faq summary{cursor:pointer;font-weight:900;font-size:18px}.faq p{color:var(--muted);line-height:1.65;margin-top:14px}
+    .cta{text-align:center}.cta h2{font-size:clamp(38px,6vw,76px);line-height:.95;letter-spacing:-.06em;margin-bottom:18px}.cta p{color:#e2e2ec;font-size:19px;margin-bottom:26px}
+    footer{padding:58px 0 28px;border-top:1px solid var(--line);background:#050505}.footer-grid{display:grid;grid-template-columns:1.5fr .7fr .7fr 1fr;gap:28px}.footer-grid h4{margin-bottom:15px}.footer-grid a,.footer-grid p{display:block;color:var(--muted);margin:10px 0;line-height:1.5}.copyright{margin-top:34px;padding-top:24px;border-top:1px solid var(--line);color:#777887;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
 
-      .preview {
-        height: 300px;
-        font-size: 30px;
-      }
-    }
+    @media(max-width:980px){.hero-grid,.reviews{grid-template-columns:1fr}.showcase-grid,.steps{grid-template-columns:repeat(2,1fr)}.stats{grid-template-columns:repeat(2,1fr)}.footer-grid{grid-template-columns:1fr 1fr}.navlinks{display:none}.hero{text-align:center}.hero p{margin-left:auto;margin-right:auto}.hero-actions,.hero-tags{justify-content:center}}
+    @media(max-width:640px){.showcase-grid,.steps,.iframe-grid,.stats,.footer-grid{grid-template-columns:1fr}.nav{height:72px}.brand{font-size:19px}.hero{padding-top:62px;min-height:auto}.edit-ui{display:none}.red-panel{padding:26px}.copyright{display:block}.client-card{min-width:210px}}
   </style>
 </head>
-
 <body>
-
-  <section class="hero">
-
-    <h1>
-      We Turn Creators Into Content Machines.
-    </h1>
-
-    <p>
-      Crunch Edits helps creators scale faster with premium YouTube editing,
-      shorts, thumbnails, and motion graphics.
-    </p>
-
-    <div class="buttons">
-
-      <button class="btn-white">
-        Start Scaling
-      </button>
-
-      <button class="btn-dark">
-        View Work
-      </button>
-
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#home"><img src="https://www.bundle-media.co/logo-white-outline.png" alt="Bundle Media logo">Bundle Media</a>
+      <nav class="navlinks">
+        <a href="#home">Home</a><a href="#about">About</a><a href="#clients">Clients</a><a href="#showcase">Showcase</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a>
+      </nav>
+      <a class="btn" href="https://wa.me/15043140043" target="_blank">Start Free Edit</a>
     </div>
+  </header>
 
-    <div class="preview">
-      Crunch Edits
+  <main>
+    <section id="home" class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="pill"><span class="dot"></span> Professional Video Editing</div>
+          <h1>We Edit <span>THE BEST</span> Videos For Social Media.</h1>
+          <p>Get world-class video editing for all your videos — ads, explainers, social media content, gaming videos, documentary edits, vlogs and thumbnails.</p>
+          <div class="hero-actions"><a class="btn" href="#contact">Contact Us</a><a class="btn outline" href="#showcase">View Showcase</a></div>
+          <div class="hero-tags"><span>ads</span><span>explainers</span><span>social media</span><span>gaming</span><span>shorts</span></div>
+        </div>
+        <div class="edit-ui" aria-label="editing interface mockup">
+          <div class="edit-inner">
+            <div class="topbar"><span>Bundle_Edit_Final_v3.prproj</span><div class="lights"><i></i><i></i><i></i></div></div>
+            <div class="preview"><div class="play">▶</div></div>
+            <div class="timeline"><div class="track"></div><div class="track"></div><div class="track"></div><div class="timecodes"><span>00:00</span><span>00:05</span><span>00:10</span><span>00:15</span></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="clients">
+      <div class="section-head"><h2>Our Clients</h2><p>Trusted by creators and brands across YouTube, Instagram, TikTok and social media.</p></div>
+      <div class="clients-wrap"><div class="marquee" id="clientMarquee"></div></div>
+    </section>
+
+    <section id="reviews">
+      <div class="container red-panel">
+        <div class="section-head" style="margin-bottom:28px"><div class="pill"><span class="dot"></span> Results That Speak</div><h2>What Our Clients Think</h2><p>Join 359+ creators who scaled their channels with our editing.</p></div>
+        <div class="stats">
+          <div class="stat"><h3>359+</h3><p>Happy Creators</p></div>
+          <div class="stat"><h3>1.3B+</h3><p>Views Generated</p></div>
+          <div class="stat"><h3>4.9/5</h3><p>Average Rating</p></div>
+          <div class="stat"><h3>48h</h3><p>Avg Turnaround</p></div>
+        </div>
+        <div class="reviews" style="margin-top:24px">
+          <div class="review-card"><div class="stars">★★★★★</div><p class="quote">“Bundle Media makes the process simple: send raw footage, get a clean creator-style edit, then scale content consistently.”</p><p class="reviewer">Creator Review • Video Editing Client</p></div>
+          <div class="mini-reviews"><div class="review-card"><div class="stars">★★★★★</div><p class="quote">Fast turnaround, clean edits and reliable communication for long-term content production.</p></div><div class="review-card"><div class="stars">★★★★★</div><p class="quote">Great option for YouTubers who need a dedicated editor instead of one-off freelancers.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-head"><h2>Our Statistics</h2><p>Editing systems built for creators who want quality, consistency and speed.</p></div>
+        <div class="stats">
+          <div class="stat"><h3>1.4M+</h3><p>Subscribers Gained</p></div>
+          <div class="stat"><h3>1.0B+</h3><p>Views Generated</p></div>
+          <div class="stat"><h3>5.0K+</h3><p>Videos Made/mo</p></div>
+          <div class="stat"><h3>24-72h</h3><p>Delivery Window</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="showcase">
+      <div class="container">
+        <div class="section-head"><h2>Showcase</h2><p>Examples across talking-head videos, shorts, gaming videos, marketing videos, documentary edits, vlogs and thumbnails.</p></div>
+        <div class="categories"><span>Talking Head Videos</span><span>Shorts</span><span>Gaming Videos</span><span>Marketing Videos</span><span>Documentary Videos</span><span>Vlog</span><span>Thumbnails</span></div>
+        <div class="showcase-grid" id="showcaseGrid"></div>
+        <div class="iframe-grid" id="videoEmbeds"></div>
+      </div>
+    </section>
+
+    <section id="process">
+      <div class="container">
+        <div class="section-head"><h2>How It Works</h2><p>From contact to final video in 4 simple steps.</p></div>
+        <div class="steps">
+          <div class="step"><div class="step-num">01</div><h3>Contact Us</h3><p>Fill out our contact form or email us directly. Tell us about your video needs, goals and content style.</p></div>
+          <div class="step"><div class="step-num">02</div><h3>FREE Test Edit</h3><p>We run a free test edit on one of your videos, no commitment required. See the quality and style before you decide.</p></div>
+          <div class="step"><div class="step-num">03</div><h3>Get Matched</h3><p>Love the test edit? We assign you a dedicated editor and set up communication channels like Slack or Discord.</p></div>
+          <div class="step"><div class="step-num">04</div><h3>Start Creating</h3><p>Send your raw footage. Your editor starts working immediately. Get your first video within 24-72 hours.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="container">
+        <div class="section-head"><h2>Frequently Asked Questions</h2><p>Everything you need to know.</p></div>
+        <div class="faq">
+          <details open><summary>How does the dedicated editor model work?</summary><p>After the test edit, you are matched with an editor who understands your style. You send raw footage and references, then receive edited videos through your preferred communication channel.</p></details>
+          <details><summary>What's the turnaround time for videos?</summary><p>Most videos are delivered within 24-72 hours depending on length, complexity, revisions and footage quality.</p></details>
+          <details><summary>Do I own the final videos?</summary><p>Yes. Once completed, the final edited videos are yours to publish on your social channels, ads or website.</p></details>
+          <details><summary>What if I don't like the edit?</summary><p>You can request revisions so the edit matches your brand, pacing, hook style, captions, music and overall direction.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="cta">
+      <div class="container red-panel">
+        <h2>Ready to join these creators?</h2>
+        <p>Get your free test edit and see why 359+ creators trust Bundle Media.</p>
+        <div class="hero-actions" style="justify-content:center"><a class="btn" href="https://wa.me/15043140043" target="_blank">Get Your Free Test Edit</a><a class="btn outline" href="mailto:business@bundle-media.co">business@bundle-media.co</a></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div><div class="brand"><img src="https://www.bundle-media.co/logo-white-outline.png" alt="Bundle Media logo">Bundle Media</div><p>Professional video editing for social media, ads, and content creators.</p></div>
+        <div><h4>Company</h4><a href="#about">About Us</a><a href="#contact">Pricing</a></div>
+        <div><h4>Resources</h4><a href="#clients">Clients</a><a href="#showcase">Showcase</a><a href="#reviews">Reviews</a><a href="#faq">FAQ</a></div>
+        <div><h4>Contact Us</h4><a href="mailto:business@bundle-media.co">business@bundle-media.co</a><a href="tel:+15043140043">+1 504 314 0043</a><a href="https://wa.me/15043140043" target="_blank">WhatsApp</a></div>
+      </div>
+      <div class="copyright"><span>© 2026 Bundle Media. All rights reserved.</span><a href="https://wa.me/15043140043" target="_blank">Start your free edit today</a></div>
     </div>
+  </footer>
 
-  </section>
-
+  <script>
+    const clients = [
+      ['LeadGenJay','74K','https://www.youtube.com/'],['Browney','11M','https://www.youtube.com/'],['Fearless & Far','600K','https://www.youtube.com/'],['ImFiji','14M','https://www.youtube.com/'],['TanQR','4.77M','https://www.youtube.com/'],['Inquisitor Master','10M','https://www.youtube.com/'],['alpha m.','6.9M','https://www.youtube.com/'],['Vindooly','1.8M','https://www.youtube.com/'],['Simply Bubliie','509K','https://www.youtube.com/'],['Koopekool','303K','https://www.youtube.com/'],['Sirud','150K','https://www.youtube.com/'],['Lost N Unbound','120K','https://www.youtube.com/'],['WinterKloudz','95K','https://www.youtube.com/'],['Global Pay','15K','https://www.globalpayments.com/'],['Kevin Estopinal','5K','https://www.youtube.com/'],['itsjustnicholas','2','https://www.youtube.com/'],['KEN RBLX','830K','https://www.youtube.com/'],['Jelly & Ducky','50K','https://www.youtube.com/'],['Sakpot','281K','https://www.youtube.com/'],['FloatyZone','867K','https://www.youtube.com/'],['Rainway','487K','https://www.youtube.com/'],['MM2 Chillz','3.9M','https://www.youtube.com/'],['Aesir','278K','https://www.youtube.com/'],['Kwil','449K','https://www.youtube.com/'],['Dr. Himanshu','TBD','https://www.instagram.com/'],['FEXR','550K','https://www.youtube.com/'],['GiveMchills','TBD','https://www.youtube.com/'],['Mozking','289K','https://www.youtube.com/'],['Zillas','85.9K','https://www.youtube.com/'],['FullValueDan','TBD','https://www.youtube.com/'],['Llxllie','1.2M','https://www.youtube.com/'],['BemmyBlox','550K','https://www.youtube.com/'],['sam','1M+','https://www.youtube.com/'],['RepublicStuds','267K','https://www.youtube.com/'],['Astrend','240K','https://www.youtube.com/'],['Meenyu','4M','https://www.youtube.com/'],['Tbhhonest','410K','https://www.youtube.com/'],['Built by Gamers','268K','https://www.youtube.com/'],['Pip & Louie','TBD','https://www.youtube.com/'],['Alaska Violet','2.56M','https://www.youtube.com/'],['DogMondays','TBD','https://www.tiktok.com/'],['DashBlox','1.51M','https://www.youtube.com/'],['Daash','20.3K','https://www.youtube.com/'],['Chillz MM2','2.1M','https://www.youtube.com/'],['Chillz Brookhaven','969K','https://www.youtube.com/'],['SprunkiSquad','TBD','https://www.youtube.com/'],['InsightBlox','18.2K','https://www.youtube.com/']
+    ];
+    const showcase = [
+      ['17 Side Hustles You Can Start In 2023.','qsVSiDv_Nfo'],['Some Animation Samples','yV2aZe8Km9U'],["Erin Mcgoff's Intro",'ELpT2nuBzH4'],["I'm Going To Jail For Dropshipping This",'YKbo2mmRyjo'],['6 HARD Decisions Every Man MUST Make in His Lifetime','lwFNNBWzcG0'],['Book A Call Video','1wfUHq_TP4w'],['10 Freelancing Tips for Freshers','QYaRV3eZixo'],['Unboxing a Haunted Dolls Mystery Box','UJj1r7r5SNc']
+    ];
+    const marquee = document.getElementById('clientMarquee');
+    [...clients,...clients].forEach(([name,subs,url])=>{
+      const a=document.createElement('a'); a.className='client-card'; a.href=url; a.target='_blank';
+      a.innerHTML=`<strong>${name}</strong><p>Subscribers: ${subs}</p>`; marquee.appendChild(a);
+    });
+    const grid=document.getElementById('showcaseGrid');
+    showcase.forEach(([title,id])=>{
+      const a=document.createElement('a'); a.className='video-card'; a.href=`https://www.youtube.com/watch?v=${id}`; a.target='_blank';
+      a.innerHTML=`<div class="thumb"><img src="https://img.youtube.com/vi/${id}/maxresdefault.jpg" alt="${title}"></div><h3>${title}</h3>`; grid.appendChild(a);
+    });
+    const embeds=document.getElementById('videoEmbeds');
+    showcase.slice(0,4).forEach(([title,id])=>{
+      const div=document.createElement('div'); div.className='embed';
+      div.innerHTML=`<iframe src="https://www.youtube.com/embed/${id}" title="${title}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>`;
+      embeds.appendChild(div);
+    });
+  </script>
 </body>
 </html>
