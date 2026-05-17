@@ -1,302 +1,1197 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bundle Media | Professional Video Editing for Social Media</title>
-  <meta name="description" content="World-class video editing for creators, brands, ads, social media, documentaries, gaming videos, vlogs and thumbnails." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <title>Wire Gaurav News</title>
+
   <style>
-    :root{
-      --bg:#050505;
-      --bg2:#0c0c10;
-      --card:#111116;
-      --card2:#17171f;
-      --text:#ffffff;
-      --muted:#a9a9b7;
-      --line:rgba(255,255,255,.10);
-      --red:#ff2727;
-      --red2:#c81414;
-      --green:#24ff88;
-      --shadow:0 24px 80px rgba(0,0,0,.55);
-      --radius:24px;
+    :root {
+      --bg: #f6f6f1;
+      --card: #ffffff;
+      --text: #151515;
+      --muted: #666666;
+      --border: #e4e4dc;
+      --brand: #ffd000;
+      --dark: #101010;
+      --red: #e11d2e;
+      --shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+      --radius: 20px;
     }
-    *{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth}
-    body{
-      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+
+    body.dark {
+      --bg: #101010;
+      --card: #181818;
+      --text: #f5f5f5;
+      --muted: #b8b8b8;
+      --border: #2b2b2b;
+      --shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button,
+    input {
+      font-family: inherit;
+    }
+
+    .container {
+      width: min(1180px, 92%);
+      margin: auto;
+    }
+
+    .top-strip {
+      background: var(--dark);
+      color: #fff;
+      font-size: 13px;
+      padding: 8px 0;
+    }
+
+    .top-strip .container {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: center;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--card);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.04);
+    }
+
+    .nav {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 24px;
+      font-weight: 900;
+      letter-spacing: -0.8px;
+    }
+
+    .logo-mark {
+      width: 44px;
+      height: 44px;
+      background: var(--brand);
+      color: #111;
+      display: grid;
+      place-items: center;
+      border-radius: 13px;
+      font-weight: 900;
+      transform: rotate(-5deg);
+    }
+
+    .menu {
+      display: flex;
+      align-items: center;
+      gap: 21px;
+      font-size: 15px;
+      font-weight: 800;
+    }
+
+    .menu a {
+      opacity: 0.85;
+    }
+
+    .menu a:hover {
+      color: var(--red);
+    }
+
+    .actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .search {
+      width: 220px;
+      padding: 11px 15px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      color: var(--text);
+      outline: none;
+    }
+
+    .icon-btn {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: var(--card);
+      color: var(--text);
+      cursor: pointer;
+      font-size: 18px;
+    }
+
+    .mobile-toggle {
+      display: none;
+    }
+
+    .ticker {
+      background: var(--card);
+      border-bottom: 1px solid var(--border);
+      padding: 13px 0;
+      overflow: hidden;
+    }
+
+    .ticker-inner {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .ticker-label {
+      background: var(--red);
+      color: white;
+      padding: 7px 13px;
+      border-radius: 999px;
+      font-weight: 900;
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    .ticker-text {
+      color: var(--muted);
+      white-space: nowrap;
+      animation: tickerMove 24s linear infinite;
+      font-weight: 600;
+    }
+
+    @keyframes tickerMove {
+      from {
+        transform: translateX(35%);
+      }
+      to {
+        transform: translateX(-100%);
+      }
+    }
+
+    .hero {
+      padding: 32px 0 24px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 0.85fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .lead-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .lead-img {
+      height: 430px;
       background:
-        radial-gradient(circle at 20% 0%,rgba(255,39,39,.20),transparent 32%),
-        radial-gradient(circle at 90% 18%,rgba(255,39,39,.12),transparent 28%),
-        linear-gradient(180deg,#020202 0%,#09090d 48%,#040404 100%);
-      color:var(--text);
-      overflow-x:hidden;
+        linear-gradient(to top, rgba(0,0,0,0.82), rgba(0,0,0,0.1)),
+        url("https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=1400&q=80");
+      background-size: cover;
+      background-position: center;
+      position: relative;
     }
-    a{color:inherit;text-decoration:none}
-    img{max-width:100%;display:block}
-    .container{width:min(1180px,92%);margin:0 auto}
-    .pill{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.05);color:#fff;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.08em}
-    .dot{width:8px;height:8px;border-radius:999px;background:var(--red);box-shadow:0 0 18px var(--red)}
 
-    header{position:sticky;top:0;z-index:50;background:rgba(5,5,5,.72);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
-    .nav{height:84px;display:flex;align-items:center;justify-content:space-between;gap:24px}
-    .brand{display:flex;align-items:center;gap:12px;font-weight:900;letter-spacing:-.04em;font-size:23px}
-    .brand img{width:46px;height:46px;object-fit:contain;border-radius:12px}
-    .navlinks{display:flex;gap:26px;align-items:center;color:#d5d5dc;font-weight:700;font-size:14px}
-    .navlinks a:hover{color:#fff}
-    .btn{display:inline-flex;align-items:center;justify-content:center;border:none;border-radius:999px;padding:14px 22px;background:linear-gradient(135deg,var(--red),var(--red2));font-weight:900;box-shadow:0 14px 38px rgba(255,39,39,.22);transition:.25s;cursor:pointer}
-    .btn:hover{transform:translateY(-2px);box-shadow:0 20px 55px rgba(255,39,39,.34)}
-    .btn.outline{background:rgba(255,255,255,.06);border:1px solid var(--line);box-shadow:none}
+    .lead-content {
+      margin-top: -155px;
+      padding: 26px;
+      position: relative;
+      z-index: 2;
+      color: white;
+    }
 
-    .hero{position:relative;padding:98px 0 72px;min-height:760px;display:grid;place-items:center;overflow:hidden}
-    .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center}
-    h1{font-size:clamp(48px,7.6vw,104px);line-height:.9;letter-spacing:-.075em;font-weight:900;margin:22px 0}
-    h1 span{color:var(--red);text-shadow:0 0 50px rgba(255,39,39,.45)}
-    .hero p{font-size:clamp(18px,2vw,24px);line-height:1.55;color:#d5d5dc;max-width:640px;margin-bottom:28px}
-    .hero-tags{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 0;color:#fff}
-    .hero-tags span{padding:10px 14px;background:rgba(255,255,255,.07);border:1px solid var(--line);border-radius:999px;font-weight:800;text-transform:lowercase}
-    .hero-actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
-    .edit-ui{border:1px solid rgba(255,255,255,.13);background:linear-gradient(180deg,#15151b,#08080c);border-radius:30px;box-shadow:var(--shadow);padding:18px;position:relative;overflow:hidden}
-    .edit-ui:before{content:"";position:absolute;inset:-40%;background:conic-gradient(from 180deg,transparent,rgba(255,39,39,.15),transparent);animation:spin 9s linear infinite}
-    @keyframes spin{to{transform:rotate(360deg)}}
-    .edit-inner{position:relative;background:#0b0b10;border:1px solid var(--line);border-radius:22px;padding:18px;overflow:hidden}
-    .topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;color:#dedee7;font-size:12px;font-weight:800}
-    .lights{display:flex;gap:7px}.lights i{width:12px;height:12px;border-radius:50%;background:#ff4b4b}.lights i:nth-child(2){background:#ffc24b}.lights i:nth-child(3){background:#2eff88}
-    .preview{height:245px;border-radius:18px;background:linear-gradient(135deg,#242431,#08080d);border:1px solid var(--line);display:grid;place-items:center;position:relative;overflow:hidden}
-    .play{width:86px;height:86px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--red),#ff6b6b);box-shadow:0 0 60px rgba(255,39,39,.5);font-size:34px;padding-left:6px}
-    .timeline{margin-top:18px;background:#111118;border:1px solid var(--line);border-radius:18px;padding:14px;display:grid;gap:10px}
-    .track{height:34px;border-radius:10px;background:rgba(255,255,255,.06);position:relative;overflow:hidden}.track:before{content:"";position:absolute;left:8%;top:7px;height:20px;width:58%;border-radius:7px;background:linear-gradient(90deg,var(--red),#ff7676)}.track:nth-child(2):before{left:18%;width:42%;background:linear-gradient(90deg,#5a5aff,#9494ff)}.track:nth-child(3):before{left:10%;width:75%;background:linear-gradient(90deg,#21c96d,#8affbd)}
-    .timecodes{display:flex;justify-content:space-between;color:#777887;font-size:11px;font-weight:800}
+    .tag {
+      display: inline-flex;
+      background: var(--brand);
+      color: #111;
+      padding: 6px 11px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 900;
+      margin-bottom: 10px;
+    }
 
-    section{padding:86px 0}.section-head{text-align:center;max-width:780px;margin:0 auto 42px}.section-head h2{font-size:clamp(34px,5vw,64px);letter-spacing:-.055em;line-height:1;font-weight:900}.section-head p{color:var(--muted);font-size:18px;line-height:1.6;margin-top:14px}
-    .clients-wrap{overflow:hidden;border-block:1px solid var(--line);padding:24px 0;background:rgba(255,255,255,.025)}
-    .marquee{display:flex;gap:14px;width:max-content;animation:marquee 54s linear infinite}.marquee:hover{animation-play-state:paused}@keyframes marquee{to{transform:translateX(-50%)}}
-    .client-card{min-width:255px;background:linear-gradient(180deg,#17171f,#0e0e13);border:1px solid var(--line);border-radius:22px;padding:16px;box-shadow:0 12px 35px rgba(0,0,0,.18);display:flex;align-items:center;gap:14px;transition:.25s}
-    .client-card:hover{transform:translateY(-4px);border-color:rgba(255,39,39,.55);background:linear-gradient(180deg,#1f1f2a,#101016)}
-    .client-logo{width:58px;height:58px;border-radius:18px;object-fit:cover;flex:0 0 auto;background:radial-gradient(circle at 30% 20%,rgba(255,255,255,.22),transparent 34%),linear-gradient(135deg,#ff2727,#111116);border:1px solid rgba(255,255,255,.16);box-shadow:0 10px 28px rgba(0,0,0,.26)}
-    .client-info{min-width:0}.client-card strong{font-size:17px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.client-card p{color:var(--muted);font-size:13px;margin-top:6px}.client-card small{display:inline-block;margin-top:6px;color:#fff;font-weight:900;font-size:11px;text-transform:uppercase;letter-spacing:.08em;opacity:.8}
+    .lead-content h1 {
+      max-width: 780px;
+      font-size: clamp(30px, 4.3vw, 54px);
+      line-height: 1.05;
+      letter-spacing: -1.5px;
+      margin-bottom: 14px;
+    }
 
-    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:28px}.stat{background:linear-gradient(180deg,#15151c,#0c0c10);border:1px solid var(--line);padding:30px;border-radius:var(--radius);text-align:center}.stat h3{font-size:42px;color:#fff}.stat p{color:var(--muted);font-weight:800;margin-top:8px}
-    .red-panel{background:linear-gradient(135deg,rgba(255,39,39,.18),rgba(255,255,255,.035));border:1px solid rgba(255,39,39,.28);border-radius:34px;padding:44px;box-shadow:var(--shadow)}
+    .lead-content p {
+      max-width: 700px;
+      color: #eeeeee;
+      font-size: 17px;
+    }
 
-    .categories{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-bottom:32px}.categories span{padding:10px 16px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid var(--line);font-weight:800;color:#e8e8ee}
-    .showcase-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.video-card{background:var(--card);border:1px solid var(--line);border-radius:22px;overflow:hidden;transition:.25s;box-shadow:0 15px 44px rgba(0,0,0,.18)}.video-card:hover{transform:translateY(-7px);border-color:rgba(255,39,39,.55)}.thumb{aspect-ratio:16/9;position:relative;background:#222;overflow:hidden}.thumb img{width:100%;height:100%;object-fit:cover;transition:.35s}.video-card:hover img{transform:scale(1.06)}.thumb:after{content:"▶";position:absolute;inset:0;margin:auto;width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:rgba(255,39,39,.9);font-size:22px;padding-left:4px}.video-card h3{font-size:15px;line-height:1.35;padding:16px;color:#fff}
-    .iframe-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:28px}.embed{border:1px solid var(--line);border-radius:24px;overflow:hidden;background:#111;box-shadow:var(--shadow)}.embed iframe{width:100%;aspect-ratio:16/9;border:0;display:block}
+    .side-stack {
+      display: grid;
+      gap: 16px;
+    }
 
-    .reviews{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:stretch}.review-card{background:linear-gradient(180deg,#17171f,#0c0c11);border:1px solid var(--line);border-radius:var(--radius);padding:26px}.stars{color:#ffcc4d;letter-spacing:3px;margin-bottom:12px}.quote{font-size:22px;line-height:1.55;font-weight:700}.reviewer{margin-top:18px;color:var(--muted);font-weight:800}.mini-reviews{display:grid;gap:16px}.mini-reviews .review-card{padding:22px}.mini-reviews .quote{font-size:16px;color:#e9e9ef}
+    .small-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px;
+      display: grid;
+      grid-template-columns: 118px 1fr;
+      gap: 14px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+    }
 
-    .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.step{background:linear-gradient(180deg,#17171f,#0c0c11);border:1px solid var(--line);border-radius:var(--radius);padding:28px;min-height:240px}.step-num{font-size:46px;font-weight:900;color:rgba(255,39,39,.82);letter-spacing:-.05em}.step h3{font-size:24px;margin:14px 0 10px}.step p{color:var(--muted);line-height:1.6}
-    .faq{max-width:900px;margin:0 auto;display:grid;gap:14px}.faq details{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px}.faq summary{cursor:pointer;font-weight:900;font-size:18px}.faq p{color:var(--muted);line-height:1.65;margin-top:14px}
-    .cta{text-align:center}.cta h2{font-size:clamp(38px,6vw,76px);line-height:.95;letter-spacing:-.06em;margin-bottom:18px}.cta p{color:#e2e2ec;font-size:19px;margin-bottom:26px}
-    footer{padding:58px 0 28px;border-top:1px solid var(--line);background:#050505}.footer-grid{display:grid;grid-template-columns:1.5fr .7fr .7fr 1fr;gap:28px}.footer-grid h4{margin-bottom:15px}.footer-grid a,.footer-grid p{display:block;color:var(--muted);margin:10px 0;line-height:1.5}.copyright{margin-top:34px;padding-top:24px;border-top:1px solid var(--line);color:#777887;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+    .thumb {
+      min-height: 96px;
+      border-radius: 15px;
+      background-size: cover;
+      background-position: center;
+    }
 
-    @media(max-width:980px){.hero-grid,.reviews{grid-template-columns:1fr}.showcase-grid,.steps{grid-template-columns:repeat(2,1fr)}.stats{grid-template-columns:repeat(2,1fr)}.footer-grid{grid-template-columns:1fr 1fr}.navlinks{display:none}.hero{text-align:center}.hero p{margin-left:auto;margin-right:auto}.hero-actions,.hero-tags{justify-content:center}}
-    @media(max-width:640px){.showcase-grid,.steps,.iframe-grid,.stats,.footer-grid{grid-template-columns:1fr}.nav{height:72px}.brand{font-size:19px}.hero{padding-top:62px;min-height:auto}.edit-ui{display:none}.red-panel{padding:26px}.copyright{display:block}.client-card{min-width:210px}}
+    .thumb.one {
+      background-image: url("https://images.unsplash.com/photo-1495020689067-958852a7765e?auto=format&fit=crop&w=500&q=80");
+    }
+
+    .thumb.two {
+      background-image: url("https://images.unsplash.com/photo-1585829365295-ab7cd400c167?auto=format&fit=crop&w=500&q=80");
+    }
+
+    .thumb.three {
+      background-image: url("https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&w=500&q=80");
+    }
+
+    .thumb.four {
+      background-image: url("https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=500&q=80");
+    }
+
+    .small-card h3 {
+      font-size: 17px;
+      line-height: 1.25;
+      margin-bottom: 8px;
+    }
+
+    .meta {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .section {
+      padding: 28px 0;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 20px;
+      margin-bottom: 18px;
+    }
+
+    .section-head h2 {
+      font-size: 32px;
+      letter-spacing: -0.8px;
+    }
+
+    .section-head a {
+      color: var(--red);
+      font-weight: 900;
+    }
+
+    .category-pills {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding-bottom: 6px;
+    }
+
+    .pill {
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      color: var(--text);
+      font-weight: 850;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+
+    .pill.active,
+    .pill:hover {
+      background: var(--brand);
+      border-color: var(--brand);
+      color: #111;
+    }
+
+    .layout-two {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .article-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+      transition: 0.2s ease;
+    }
+
+    .article-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+
+    .article-img {
+      height: 190px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .article-img.img1 {
+      background-image: url("https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?auto=format&fit=crop&w=800&q=80");
+    }
+
+    .article-img.img2 {
+      background-image: url("https://images.unsplash.com/photo-1521295121783-8a321d551ad2?auto=format&fit=crop&w=800&q=80");
+    }
+
+    .article-img.img3 {
+      background-image: url("https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=800&q=80");
+    }
+
+    .article-img.img4 {
+      background-image: url("https://images.unsplash.com/photo-1495020689067-958852a7765e?auto=format&fit=crop&w=800&q=80");
+    }
+
+    .article-img.img5 {
+      background-image: url("https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80");
+    }
+
+    .article-img.img6 {
+      background-image: url("https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=800&q=80");
+    }
+
+    .article-body {
+      padding: 17px;
+    }
+
+    .article-body h3 {
+      font-size: 20px;
+      line-height: 1.25;
+      margin: 8px 0 10px;
+    }
+
+    .trending {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      position: sticky;
+      top: 100px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.04);
+    }
+
+    .trend-item {
+      display: grid;
+      grid-template-columns: 38px 1fr;
+      gap: 12px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .trend-item:last-child {
+      border-bottom: 0;
+    }
+
+    .number {
+      width: 34px;
+      height: 34px;
+      background: var(--brand);
+      color: #111;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+    }
+
+    .trend-item h3 {
+      font-size: 16px;
+      line-height: 1.35;
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .video-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+    }
+
+    .youtube-box {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #111;
+      overflow: hidden;
+    }
+
+    .youtube-box iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+
+    .video-card h3 {
+      padding: 14px;
+      font-size: 17px;
+      line-height: 1.3;
+    }
+
+    .shows-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .show-card {
+      min-height: 230px;
+      border-radius: var(--radius);
+      background:
+        linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.1)),
+        url("https://images.unsplash.com/photo-1585829365295-ab7cd400c167?auto=format&fit=crop&w=800&q=80");
+      background-size: cover;
+      background-position: center;
+      padding: 20px;
+      color: white;
+      display: flex;
+      align-items: end;
+      box-shadow: var(--shadow);
+    }
+
+    .show-card h3 {
+      font-size: 25px;
+      line-height: 1.1;
+      margin-top: 8px;
+    }
+
+    .authors {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 15px;
+    }
+
+    .author {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      text-align: center;
+      padding: 18px 12px;
+    }
+
+    .avatar {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      margin: 0 auto 10px;
+      background: linear-gradient(135deg, var(--brand), #ff7a00);
+      display: grid;
+      place-items: center;
+      color: #111;
+      font-weight: 900;
+      font-size: 20px;
+    }
+
+    .newsletter {
+      margin: 34px auto;
+      background: #111;
+      color: white;
+      border-radius: 28px;
+      padding: 34px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 24px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .newsletter::after {
+      content: "";
+      width: 240px;
+      height: 240px;
+      background: var(--brand);
+      opacity: 0.16;
+      border-radius: 50%;
+      position: absolute;
+      right: -70px;
+      top: -90px;
+    }
+
+    .newsletter h2 {
+      font-size: 34px;
+      margin-bottom: 8px;
+    }
+
+    .newsletter p {
+      color: #cccccc;
+    }
+
+    .newsletter-form {
+      display: flex;
+      gap: 10px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .newsletter input {
+      padding: 14px 16px;
+      border-radius: 999px;
+      border: 0;
+      min-width: 260px;
+      outline: none;
+    }
+
+    .btn {
+      border: 0;
+      padding: 13px 18px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 900;
+      background: var(--brand);
+      color: #111;
+    }
+
+    footer {
+      background: #111;
+      color: white;
+      margin-top: 40px;
+      padding: 42px 0 24px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.3fr repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    footer h3,
+    footer h4 {
+      margin-bottom: 12px;
+    }
+
+    footer p,
+    footer a {
+      color: #c9c9c9;
+      font-size: 14px;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .copyright {
+      border-top: 1px solid #333;
+      margin-top: 28px;
+      padding-top: 18px;
+      color: #aaa;
+      font-size: 13px;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .layout-two,
+      .newsletter,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .news-grid,
+      .shows-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .video-grid,
+      .authors {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .trending {
+        position: static;
+      }
+
+      .search {
+        display: none;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .top-strip .container {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .mobile-toggle {
+        display: inline-grid;
+      }
+
+      .menu {
+        position: fixed;
+        top: 76px;
+        left: 0;
+        right: 0;
+        background: var(--card);
+        border-bottom: 1px solid var(--border);
+        padding: 20px;
+        flex-direction: column;
+        align-items: flex-start;
+        transform: translateY(-140%);
+        transition: 0.25s ease;
+        z-index: 999;
+      }
+
+      .menu.open {
+        transform: translateY(0);
+      }
+
+      .logo {
+        font-size: 19px;
+      }
+
+      .logo-mark {
+        width: 40px;
+        height: 40px;
+      }
+
+      .lead-img {
+        height: 370px;
+      }
+
+      .small-card {
+        grid-template-columns: 100px 1fr;
+      }
+
+      .news-grid,
+      .video-grid,
+      .shows-grid,
+      .authors {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .newsletter-form {
+        flex-direction: column;
+      }
+
+      .newsletter input {
+        min-width: 100%;
+      }
+    }
   </style>
 </head>
+
 <body>
+
+  <div class="top-strip">
+    <div class="container">
+      <span>Wire Gaurav News — सच्ची खबर, साफ भाषा में</span>
+      <span>ताज़ा अपडेट्स · वीडियो · राजनीति · देश · दुनिया</span>
+    </div>
+  </div>
+
   <header>
     <div class="container nav">
-      <a class="brand" href="#home"><img src="https://www.bundle-media.co/logo-white-outline.png" alt="Bundle Media logo">Bundle Media</a>
-      <nav class="navlinks">
-        <a href="#home">Home</a><a href="#about">About</a><a href="#clients">Clients</a><a href="#showcase">Showcase</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a>
+      <a href="#" class="logo">
+        <span class="logo-mark">WG</span>
+        <span>Wire Gaurav News</span>
+      </a>
+
+      <nav class="menu" id="menu">
+        <a href="#">होम</a>
+        <a href="#">वीडियो</a>
+        <a href="#">शोज़</a>
+        <a href="#">राजनीति</a>
+        <a href="#">देश</a>
+        <a href="#">दुनिया</a>
+        <a href="#">खेल</a>
+        <a href="#">मनोरंजन</a>
       </nav>
-      <a class="btn" href="https://wa.me/15043140043" target="_blank">Start Free Edit</a>
+
+      <div class="actions">
+        <input class="search" type="search" placeholder="खबर खोजें..." />
+        <button class="icon-btn" id="darkToggle">☾</button>
+        <button class="icon-btn mobile-toggle" id="mobileToggle">☰</button>
+      </div>
     </div>
   </header>
 
+  <div class="ticker">
+    <div class="container ticker-inner">
+      <span class="ticker-label">ब्रेकिंग</span>
+      <p class="ticker-text">
+        देश, दुनिया, राजनीति, चुनाव, खेल, मनोरंजन और वायरल खबरों की सबसे तेज अपडेट्स — Wire Gaurav News पर.
+      </p>
+    </div>
+  </div>
+
   <main>
-    <section id="home" class="hero">
+
+    <section class="hero">
       <div class="container hero-grid">
-        <div>
-          <div class="pill"><span class="dot"></span> Professional Video Editing</div>
-          <h1>We Edit <span>THE BEST</span> Videos For Social Media.</h1>
-          <p>Get world-class video editing for all your videos — ads, explainers, social media content, gaming videos, documentary edits, vlogs and thumbnails.</p>
-          <div class="hero-actions"><a class="btn" href="#contact">Contact Us</a><a class="btn outline" href="#showcase">View Showcase</a></div>
-          <div class="hero-tags"><span>ads</span><span>explainers</span><span>social media</span><span>gaming</span><span>shorts</span></div>
+
+        <article class="lead-card">
+          <div class="lead-img"></div>
+          <div class="lead-content">
+            <span class="tag">मुख्य खबर</span>
+            <h1>आज की सबसे बड़ी खबर: पूरी कहानी आसान भाषा में</h1>
+            <p>
+              Wire Gaurav News पर आपको हर बड़ी खबर का साफ, सरल और भरोसेमंद विश्लेषण मिलता है.
+              यहां राजनीति, देश, दुनिया और वायरल मुद्दों की पूरी जानकारी एक जगह मिलेगी.
+            </p>
+          </div>
+        </article>
+
+        <aside class="side-stack">
+          <article class="small-card">
+            <div class="thumb one"></div>
+            <div>
+              <span class="tag">राजनीति</span>
+              <h3>सरकार के नए फैसले पर विपक्ष का बड़ा बयान</h3>
+              <p class="meta">10 मिनट पहले</p>
+            </div>
+          </article>
+
+          <article class="small-card">
+            <div class="thumb two"></div>
+            <div>
+              <span class="tag">वीडियो</span>
+              <h3>आज का सबसे वायरल वीडियो और उसके पीछे की कहानी</h3>
+              <p class="meta">25 मिनट पहले</p>
+            </div>
+          </article>
+
+          <article class="small-card">
+            <div class="thumb three"></div>
+            <div>
+              <span class="tag">देश</span>
+              <h3>देशभर से आई बड़ी खबरों का पूरा अपडेट</h3>
+              <p class="meta">1 घंटा पहले</p>
+            </div>
+          </article>
+
+          <article class="small-card">
+            <div class="thumb four"></div>
+            <div>
+              <span class="tag">दुनिया</span>
+              <h3>दुनिया की बड़ी घटनाओं पर खास रिपोर्ट</h3>
+              <p class="meta">2 घंटे पहले</p>
+            </div>
+          </article>
+        </aside>
+
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="category-pills">
+          <button class="pill active">सभी</button>
+          <button class="pill">ब्रेकिंग</button>
+          <button class="pill">राजनीति</button>
+          <button class="pill">देश</button>
+          <button class="pill">दुनिया</button>
+          <button class="pill">खेल</button>
+          <button class="pill">मनोरंजन</button>
+          <button class="pill">वायरल</button>
+          <button class="pill">फैक्ट चेक</button>
         </div>
-        <div class="edit-ui" aria-label="editing interface mockup">
-          <div class="edit-inner">
-            <div class="topbar"><span>Bundle_Edit_Final_v3.prproj</span><div class="lights"><i></i><i></i><i></i></div></div>
-            <div class="preview"><div class="play">▶</div></div>
-            <div class="timeline"><div class="track"></div><div class="track"></div><div class="track"></div><div class="timecodes"><span>00:00</span><span>00:05</span><span>00:10</span><span>00:15</span></div></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container layout-two">
+
+        <div>
+          <div class="section-head">
+            <h2>ताज़ा खबरें</h2>
+            <a href="#">सभी देखें →</a>
+          </div>
+
+          <div class="news-grid">
+
+            <article class="article-card">
+              <div class="article-img img1"></div>
+              <div class="article-body">
+                <span class="tag">राजनीति</span>
+                <h3>चुनावी माहौल में नेताओं के बयान से गरमाई सियासत</h3>
+                <p class="meta">Wire Gaurav Desk · 12 मिनट पहले</p>
+              </div>
+            </article>
+
+            <article class="article-card">
+              <div class="article-img img2"></div>
+              <div class="article-body">
+                <span class="tag">दुनिया</span>
+                <h3>अंतरराष्ट्रीय मुद्दे पर भारत की बड़ी प्रतिक्रिया</h3>
+                <p class="meta">Wire Gaurav Desk · 30 मिनट पहले</p>
+              </div>
+            </article>
+
+            <article class="article-card">
+              <div class="article-img img3"></div>
+              <div class="article-body">
+                <span class="tag">खेल</span>
+                <h3>मैच से पहले टीम में बड़ा बदलाव, फैंस में उत्साह</h3>
+                <p class="meta">Wire Gaurav Sports · 1 घंटा पहले</p>
+              </div>
+            </article>
+
+            <article class="article-card">
+              <div class="article-img img4"></div>
+              <div class="article-body">
+                <span class="tag">देश</span>
+                <h3>देश के कई राज्यों में मौसम और ट्रैफिक को लेकर अलर्ट</h3>
+                <p class="meta">Wire Gaurav Desk · 2 घंटे पहले</p>
+              </div>
+            </article>
+
+            <article class="article-card">
+              <div class="article-img img5"></div>
+              <div class="article-body">
+                <span class="tag">टेक</span>
+                <h3>AI और टेक्नोलॉजी की दुनिया में आया नया बदलाव</h3>
+                <p class="meta">Wire Gaurav Tech · 3 घंटे पहले</p>
+              </div>
+            </article>
+
+            <article class="article-card">
+              <div class="article-img img6"></div>
+              <div class="article-body">
+                <span class="tag">मनोरंजन</span>
+                <h3>फिल्मी दुनिया से आई बड़ी खबर, सोशल मीडिया पर चर्चा</h3>
+                <p class="meta">Wire Gaurav Entertainment · 4 घंटे पहले</p>
+              </div>
+            </article>
+
           </div>
         </div>
+
+        <aside class="trending">
+          <div class="section-head">
+            <h2>ट्रेंडिंग</h2>
+          </div>
+
+          <div class="trend-item">
+            <span class="number">1</span>
+            <h3>आज की सबसे ज्यादा पढ़ी गई खबर</h3>
+          </div>
+
+          <div class="trend-item">
+            <span class="number">2</span>
+            <h3>सोशल मीडिया पर वायरल मुद्दे की पूरी कहानी</h3>
+          </div>
+
+          <div class="trend-item">
+            <span class="number">3</span>
+            <h3>राजनीति से जुड़ी बड़ी बहस</h3>
+          </div>
+
+          <div class="trend-item">
+            <span class="number">4</span>
+            <h3>वीडियो स्टोरी जिसने लोगों का ध्यान खींचा</h3>
+          </div>
+
+          <div class="trend-item">
+            <span class="number">5</span>
+            <h3>खेल जगत से आई बड़ी अपडेट</h3>
+          </div>
+        </aside>
+
       </div>
     </section>
 
-    <section id="clients">
-      <div class="section-head"><h2>Our Clients</h2><p>Trusted by creators and brands across YouTube, Instagram, TikTok and social media.</p></div>
-      <div class="clients-wrap"><div class="marquee" id="clientMarquee"></div></div>
-    </section>
-
-    <section id="reviews">
-      <div class="container red-panel">
-        <div class="section-head" style="margin-bottom:28px"><div class="pill"><span class="dot"></span> Results That Speak</div><h2>What Our Clients Think</h2><p>Join 359+ creators who scaled their channels with our editing.</p></div>
-        <div class="stats">
-          <div class="stat"><h3>359+</h3><p>Happy Creators</p></div>
-          <div class="stat"><h3>1.3B+</h3><p>Views Generated</p></div>
-          <div class="stat"><h3>4.9/5</h3><p>Average Rating</p></div>
-          <div class="stat"><h3>48h</h3><p>Avg Turnaround</p></div>
-        </div>
-        <div class="reviews" style="margin-top:24px">
-          <div class="review-card"><div class="stars">★★★★★</div><p class="quote">“Bundle Media makes the process simple: send raw footage, get a clean creator-style edit, then scale content consistently.”</p><p class="reviewer">Creator Review • Video Editing Client</p></div>
-          <div class="mini-reviews"><div class="review-card"><div class="stars">★★★★★</div><p class="quote">Fast turnaround, clean edits and reliable communication for long-term content production.</p></div><div class="review-card"><div class="stars">★★★★★</div><p class="quote">Great option for YouTubers who need a dedicated editor instead of one-off freelancers.</p></div></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="about">
+    <section class="section">
       <div class="container">
-        <div class="section-head"><h2>Our Statistics</h2><p>Editing systems built for creators who want quality, consistency and speed.</p></div>
-        <div class="stats">
-          <div class="stat"><h3>1.4M+</h3><p>Subscribers Gained</p></div>
-          <div class="stat"><h3>1.0B+</h3><p>Views Generated</p></div>
-          <div class="stat"><h3>5.0K+</h3><p>Videos Made/mo</p></div>
-          <div class="stat"><h3>24-72h</h3><p>Delivery Window</p></div>
+
+        <div class="section-head">
+          <h2>लेटेस्ट वीडियो</h2>
+          <a href="#">सभी वीडियो देखें →</a>
         </div>
-      </div>
-    </section>
 
-    <section id="showcase">
-      <div class="container">
-        <div class="section-head"><h2>Showcase</h2><p>Examples across talking-head videos, shorts, gaming videos, marketing videos, documentary edits, vlogs and thumbnails.</p></div>
-        <div class="categories"><span>Talking Head Videos</span><span>Shorts</span><span>Gaming Videos</span><span>Marketing Videos</span><span>Documentary Videos</span><span>Vlog</span><span>Thumbnails</span></div>
-        <div class="showcase-grid" id="showcaseGrid"></div>
-        <div class="iframe-grid" id="videoEmbeds"></div>
-      </div>
-    </section>
+        <div class="video-grid">
 
-    <section id="process">
-      <div class="container">
-        <div class="section-head"><h2>How It Works</h2><p>From contact to final video in 4 simple steps.</p></div>
-        <div class="steps">
-          <div class="step"><div class="step-num">01</div><h3>Contact Us</h3><p>Fill out our contact form or email us directly. Tell us about your video needs, goals and content style.</p></div>
-          <div class="step"><div class="step-num">02</div><h3>FREE Test Edit</h3><p>We run a free test edit on one of your videos, no commitment required. See the quality and style before you decide.</p></div>
-          <div class="step"><div class="step-num">03</div><h3>Get Matched</h3><p>Love the test edit? We assign you a dedicated editor and set up communication channels like Slack or Discord.</p></div>
-          <div class="step"><div class="step-num">04</div><h3>Start Creating</h3><p>Send your raw footage. Your editor starts working immediately. Get your first video within 24-72 hours.</p></div>
+          <article class="video-card">
+            <div class="youtube-box">
+              <iframe 
+                src="https://www.youtube.com/embed/VIDEO_ID_1"
+                title="Wire Gaurav News Video 1"
+                allowfullscreen>
+              </iframe>
+            </div>
+            <h3>आज की बड़ी खबर का पूरा विश्लेषण</h3>
+          </article>
+
+          <article class="video-card">
+            <div class="youtube-box">
+              <iframe 
+                src="https://www.youtube.com/embed/VIDEO_ID_2"
+                title="Wire Gaurav News Video 2"
+                allowfullscreen>
+              </iframe>
+            </div>
+            <h3>ग्राउंड रिपोर्ट: जनता क्या कह रही है?</h3>
+          </article>
+
+          <article class="video-card">
+            <div class="youtube-box">
+              <iframe 
+                src="https://www.youtube.com/embed/VIDEO_ID_3"
+                title="Wire Gaurav News Video 3"
+                allowfullscreen>
+              </iframe>
+            </div>
+            <h3>राजनीतिक बयान पर देशभर में चर्चा</h3>
+          </article>
+
+          <article class="video-card">
+            <div class="youtube-box">
+              <iframe 
+                src="https://www.youtube.com/embed/VIDEO_ID_4"
+                title="Wire Gaurav News Video 4"
+                allowfullscreen>
+              </iframe>
+            </div>
+            <h3>वायरल खबर की पूरी सच्चाई</h3>
+          </article>
+
         </div>
+
       </div>
     </section>
 
-    <section id="faq">
+    <section class="section">
       <div class="container">
-        <div class="section-head"><h2>Frequently Asked Questions</h2><p>Everything you need to know.</p></div>
-        <div class="faq">
-          <details open><summary>How does the dedicated editor model work?</summary><p>After the test edit, you are matched with an editor who understands your style. You send raw footage and references, then receive edited videos through your preferred communication channel.</p></details>
-          <details><summary>What's the turnaround time for videos?</summary><p>Most videos are delivered within 24-72 hours depending on length, complexity, revisions and footage quality.</p></details>
-          <details><summary>Do I own the final videos?</summary><p>Yes. Once completed, the final edited videos are yours to publish on your social channels, ads or website.</p></details>
-          <details><summary>What if I don't like the edit?</summary><p>You can request revisions so the edit matches your brand, pacing, hook style, captions, music and overall direction.</p></details>
+
+        <div class="section-head">
+          <h2>हमारे शोज़</h2>
+          <a href="#">सभी शोज़ देखें →</a>
         </div>
+
+        <div class="shows-grid">
+
+          <article class="show-card">
+            <div>
+              <span class="tag">डेली शो</span>
+              <h3>Wire Gaurav Show</h3>
+              <p>हर दिन की बड़ी खबरों का आसान विश्लेषण</p>
+            </div>
+          </article>
+
+          <article class="show-card">
+            <div>
+              <span class="tag">एक्सप्लेनर</span>
+              <h3>बात साफ है</h3>
+              <p>कठिन मुद्दों को सरल भाषा में समझिए</p>
+            </div>
+          </article>
+
+          <article class="show-card">
+            <div>
+              <span class="tag">फैक्ट चेक</span>
+              <h3>सच या अफवाह</h3>
+              <p>वायरल दावों की पूरी जांच</p>
+            </div>
+          </article>
+
+        </div>
+
       </div>
     </section>
 
-    <section id="contact" class="cta">
-      <div class="container red-panel">
-        <h2>Ready to join these creators?</h2>
-        <p>Get your free test edit and see why 359+ creators trust Bundle Media.</p>
-        <div class="hero-actions" style="justify-content:center"><a class="btn" href="https://wa.me/15043140043" target="_blank">Get Your Free Test Edit</a><a class="btn outline" href="mailto:business@bundle-media.co">business@bundle-media.co</a></div>
+    <section class="section">
+      <div class="container">
+
+        <div class="section-head">
+          <h2>हमारी टीम</h2>
+          <a href="#">सभी देखें →</a>
+        </div>
+
+        <div class="authors">
+
+          <div class="author">
+            <div class="avatar">G</div>
+            <h3>गौरव</h3>
+            <p class="meta">मुख्य संपादक</p>
+          </div>
+
+          <div class="author">
+            <div class="avatar">A</div>
+            <h3>अमन</h3>
+            <p class="meta">राजनीति</p>
+          </div>
+
+          <div class="author">
+            <div class="avatar">R</div>
+            <h3>राहुल</h3>
+            <p class="meta">देश</p>
+          </div>
+
+          <div class="author">
+            <div class="avatar">N</div>
+            <h3>नेहा</h3>
+            <p class="meta">दुनिया</p>
+          </div>
+
+          <div class="author">
+            <div class="avatar">S</div>
+            <h3>सुमित</h3>
+            <p class="meta">खेल</p>
+          </div>
+
+          <div class="author">
+            <div class="avatar">P</div>
+            <h3>प्रिया</h3>
+            <p class="meta">मनोरंजन</p>
+          </div>
+
+        </div>
+
       </div>
     </section>
+
+    <section class="container newsletter">
+      <div>
+        <h2>ताज़ा खबरें सीधे आपके इनबॉक्स में</h2>
+        <p>Wire Gaurav News का न्यूज़लेटर जॉइन करें और बड़ी खबरों की अपडेट सबसे पहले पाएं.</p>
+      </div>
+
+      <form class="newsletter-form" id="newsletterForm">
+        <input type="email" placeholder="अपना ईमेल डालें" required />
+        <button class="btn" type="submit">सब्सक्राइब करें</button>
+      </form>
+    </section>
+
   </main>
 
   <footer>
     <div class="container">
+
       <div class="footer-grid">
-        <div><div class="brand"><img src="https://www.bundle-media.co/logo-white-outline.png" alt="Bundle Media logo">Bundle Media</div><p>Professional video editing for social media, ads, and content creators.</p></div>
-        <div><h4>Company</h4><a href="#about">About Us</a><a href="#contact">Pricing</a></div>
-        <div><h4>Resources</h4><a href="#clients">Clients</a><a href="#showcase">Showcase</a><a href="#reviews">Reviews</a><a href="#faq">FAQ</a></div>
-        <div><h4>Contact Us</h4><a href="mailto:business@bundle-media.co">business@bundle-media.co</a><a href="tel:+15043140043">+1 504 314 0043</a><a href="https://wa.me/15043140043" target="_blank">WhatsApp</a></div>
+
+        <div>
+          <h3>Wire Gaurav News</h3>
+          <p>
+            Wire Gaurav News एक आधुनिक डिजिटल न्यूज़ प्लेटफॉर्म है,
+            जहां आपको देश, दुनिया, राजनीति, खेल, मनोरंजन और वायरल खबरों की अपडेट मिलती है.
+          </p>
+        </div>
+
+        <div>
+          <h4>सेक्शन</h4>
+          <a href="#">होम</a>
+          <a href="#">वीडियो</a>
+          <a href="#">शोज़</a>
+          <a href="#">राजनीति</a>
+        </div>
+
+        <div>
+          <h4>कंपनी</h4>
+          <a href="#">हमारे बारे में</a>
+          <a href="#">संपर्क करें</a>
+          <a href="#">करियर</a>
+          <a href="#">फीडबैक</a>
+        </div>
+
+        <div>
+          <h4>कानूनी</h4>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+          <a href="#">Disclaimer</a>
+        </div>
+
       </div>
-      <div class="copyright"><span>© 2026 Bundle Media. All rights reserved.</span><a href="https://wa.me/15043140043" target="_blank">Start your free edit today</a></div>
+
+      <p class="copyright">
+        © 2026 Wire Gaurav News. सभी अधिकार सुरक्षित.
+      </p>
+
     </div>
   </footer>
 
   <script>
-    const clients = [
-      {name:'LeadGenJay', subs:'74K', url:'https://www.youtube.com/@LeadGenJay'},
-      {name:'Browney', subs:'11M', url:'https://www.youtube.com/Browney'},
-      {name:'Fearless & Far', subs:'600K', url:'https://www.youtube.com/@fearlessandfar'},
-      {name:'ImFiji', subs:'14M', url:'https://www.youtube.com/@ImFiji'},
-      {name:'TanQR', subs:'4.77M', url:'https://www.youtube.com/@TanqR'},
-      {name:'Inquisitor Master', subs:'10M', url:'https://www.youtube.com/@InquisitorMaster'},
-      {name:'alpha m.', subs:'6.9M', url:'https://www.youtube.com/@alpham'},
-      {name:'Vindooly', subs:'1.8M', url:'https://www.youtube.com/@Vindooly/videos'},
-      {name:'Simply Bubliie', subs:'509K', url:'https://www.youtube.com/@SiimplyBubliie'},
-      {name:'Koopekool', subs:'303K', url:'https://www.youtube.com/@koopekool/videos'},
-      {name:'Sirud', subs:'150K', url:'https://www.youtube.com/@Sirud'},
-      {name:'Lost N Unbound', subs:'120K', url:'https://www.youtube.com/@LostNUnbound'},
-      {name:'WinterKloudz', subs:'95K', url:'https://www.youtube.com/@WinterKloudz'},
-      {name:'Global Pay', subs:'15K', url:'https://www.globalpayments.com/'},
-      {name:'Kevin Estopinal', subs:'5K', url:'https://www.youtube.com/@kevinestopinal'},
-      {name:'itsjustnicholas', subs:'2', url:'https://www.youtube.com/@itsjustnicholas'},
-      {name:'KEN RBLX', subs:'830K', url:'https://www.youtube.com/@KENRBLX'},
-      {name:'Jelly & Ducky', subs:'50K', url:'https://www.youtube.com/@JellyAndDucky'},
-      {name:'Sakpot', subs:'281K', url:'https://www.youtube.com/@Sakpot'},
-      {name:'FloatyZone', subs:'867K', url:'https://www.youtube.com/@FloatyZone'},
-      {name:'Rainway', subs:'487K', url:'https://www.youtube.com/@RainwayRoblox'},
-      {name:'MM2 Chillz', subs:'3.9M', url:'https://www.youtube.com/@MM2Chillz'},
-      {name:'Aesir', subs:'278K', url:'https://www.youtube.com/@AesirYT'},
-      {name:'Kwil', subs:'449K', url:'https://www.youtube.com/@Kwil'},
-      {name:'Dr. Himanshu', subs:'TBD', url:'https://www.instagram.com/drhimanshu'},
-      {name:'FEXR', subs:'550K', url:'https://www.youtube.com/@FEXR'},
-      {name:'GiveMchills', subs:'TBD', url:'https://www.youtube.com/@GiveMchills'},
-      {name:'Mozking', subs:'289K', url:'https://www.youtube.com/@Mozking'},
-      {name:'Zillas', subs:'85.9K', url:'https://www.youtube.com/@Zillas'},
-      {name:'FullValueDan', subs:'TBD', url:'https://www.youtube.com/@FullValueDan'},
-      {name:'Llxllie', subs:'1.2M', url:'https://www.youtube.com/@Llxllie'},
-      {name:'BemmyBlox', subs:'550K', url:'https://www.youtube.com/@BemmyBlox'},
-      {name:'sam', subs:'1M+', url:'https://www.youtube.com/@sam'},
-      {name:'RepublicStuds', subs:'267K', url:'https://www.youtube.com/@RepublicStuds'},
-      {name:'Astrend', subs:'240K', url:'https://www.youtube.com/@Astrend'},
-      {name:'Meenyu', subs:'4M', url:'https://www.youtube.com/@Meenyu'},
-      {name:'Tbhhonest', subs:'410K', url:'https://www.youtube.com/@Tbhhonest'},
-      {name:'Built by Gamers', subs:'268K', url:'https://www.youtube.com/@BuiltByGamers'},
-      {name:'Pip & Louie', subs:'TBD', url:'https://www.youtube.com/@PipAndLouie'},
-      {name:'Alaska Violet', subs:'2.56M', url:'https://www.youtube.com/@AlaskaViolet'},
-      {name:'DogMondays', subs:'TBD', url:'https://www.tiktok.com/@dogmondays'},
-      {name:'DashBlox', subs:'1.51M', url:'https://www.youtube.com/@DashBlox'},
-      {name:'Daash', subs:'20.3K', url:'https://www.youtube.com/@Daash'},
-      {name:'Chillz MM2', subs:'2.1M', url:'https://www.youtube.com/@ChillzMM2'},
-      {name:'Chillz Brookhaven', subs:'969K', url:'https://www.youtube.com/@ChillzBrookhaven'},
-      {name:'SprunkiSquad', subs:'TBD', url:'https://www.youtube.com/@SprunkiSquad'},
-      {name:'InsightBlox', subs:'18.2K', url:'https://www.youtube.com/@InsightBlox'}
-    ];
+    const menu = document.getElementById("menu");
+    const mobileToggle = document.getElementById("mobileToggle");
+    const darkToggle = document.getElementById("darkToggle");
+    const newsletterForm = document.getElementById("newsletterForm");
 
-    const showcase = [
-      ['17 Side Hustles You Can Start In 2023.','qsVSiDv_Nfo'],['Some Animation Samples','yV2aZe8Km9U'],["Erin Mcgoff's Intro",'ELpT2nuBzH4'],["I'm Going To Jail For Dropshipping This",'YKbo2mmRyjo'],['6 HARD Decisions Every Man MUST Make in His Lifetime','lwFNNBWzcG0'],['Book A Call Video','1wfUHq_TP4w'],['10 Freelancing Tips for Freshers','QYaRV3eZixo'],['Unboxing a Haunted Dolls Mystery Box','UJj1r7r5SNc']
-    ];
-    const logoFor = (name) => `https://api.dicebear.com/9.x/initials/svg?seed=${encodeURIComponent(name)}&backgroundColor=ff2727,17171f,2b2b36&textColor=ffffff&fontWeight=800`;
-    const marquee = document.getElementById('clientMarquee');
-    [...clients,...clients].forEach(({name,subs,url})=>{
-      const a=document.createElement('a');
-      a.className='client-card';
-      a.href=url;
-      a.target='_blank';
-      a.rel='noopener noreferrer';
-      a.title=`Open ${name} channel`;
-      a.innerHTML=`
-        <img class="client-logo" src="${logoFor(name)}" alt="${name} logo" loading="lazy">
-        <div class="client-info">
-          <strong>${name}</strong>
-          <p>Subscribers: ${subs}</p>
-          <small>Open Channel</small>
-        </div>`;
-      marquee.appendChild(a);
+    mobileToggle.addEventListener("click", function () {
+      menu.classList.toggle("open");
     });
-    const grid=document.getElementById('showcaseGrid');
-    showcase.forEach(([title,id])=>{
-      const a=document.createElement('a'); a.className='video-card'; a.href=`https://www.youtube.com/watch?v=${id}`; a.target='_blank';
-      a.innerHTML=`<div class="thumb"><img src="https://img.youtube.com/vi/${id}/maxresdefault.jpg" alt="${title}"></div><h3>${title}</h3>`; grid.appendChild(a);
+
+    darkToggle.addEventListener("click", function () {
+      document.body.classList.toggle("dark");
+
+      if (document.body.classList.contains("dark")) {
+        darkToggle.textContent = "☀";
+      } else {
+        darkToggle.textContent = "☾";
+      }
     });
-    const embeds=document.getElementById('videoEmbeds');
-    showcase.slice(0,4).forEach(([title,id])=>{
-      const div=document.createElement('div'); div.className='embed';
-      div.innerHTML=`<iframe src="https://www.youtube.com/embed/${id}" title="${title}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>`;
-      embeds.appendChild(div);
+
+    newsletterForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      alert("धन्यवाद! आपने न्यूज़लेटर सब्सक्राइब कर लिया है.");
+      newsletterForm.reset();
     });
   </script>
+
 </body>
 </html>
